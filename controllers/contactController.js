@@ -9,6 +9,12 @@ const getContact = (req, res) => {
 //@route POST /api/contacts
 //@access public
 const createContact = (req, res) => {
+  console.log(req.body);
+  const {name, mobile, email} = req.body;
+  if (!name || !mobile || !email) {
+    res.status(400)
+    throw new Error("All fields are requires");
+  }
   res.status(201).json({ message: "Created a contact" });
 };
 
@@ -37,4 +43,10 @@ const deleteContact = (req, res) => {
     .json({ message: `Delete the contact with id ${req.params.id}` });
 };
 
-module.exports = { getContact, createContact, getSingleContact, updateContact, deleteContact };
+module.exports = {
+  getContact,
+  createContact,
+  getSingleContact,
+  updateContact,
+  deleteContact,
+};
