@@ -12,3 +12,4 @@ app.use(errorHandler);
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 app.use("/api/contacts", contactRouter);
+console.log("A change made in feature/Dev1 branch")
